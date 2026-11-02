@@ -1,5 +1,6 @@
-
--- Insertamos una sala a la tabla rooms
-
-INSERT INTO rooms (name, capacity)
-VALUES ('Sala Este', 6);
+SELECT
+u.name AS empleado,
+COUNT(res.user_id) AS reservas_salas
+FROM users u
+LEFT JOIN reservations res ON u.id = res.user_id
+GROUP BY u.id, u.name;
